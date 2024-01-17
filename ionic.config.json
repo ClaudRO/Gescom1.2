@@ -1,0 +1,7 @@
+{
+  "name": "Gescom1.2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
