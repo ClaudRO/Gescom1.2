@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Ingresa a tu Cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="login()">
+    <ion-grid>
+      <div id="container2">
+          <h3>Ingresa a tu Cuenta</h3>
+        </div>
+      <ion-row color="primary" justify-content-center>
+        
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          
+          <div padding>
+            <ion-item>
+              <ion-label position="floating">Correo electrónico</ion-label>
+              <ion-input name="email" type="email" placeholder="tu@email.com"
+                [(ngModel)]="credenciales.correo" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input name="password" type="password" placeholder="Contraseña"
+                [(ngModel)]="credenciales.contrasenia" required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button size="large" expand="block" type="submit" >
+              Acceder
+            </ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+  <div id="container">
+    <p style="color: white; font-size: large; display: inline-block; margin: 0;">
+      ¿No te has registrado aún?
+    </p>
+    <ion-button routerLink="/registro" style="padding: 5px; margin-left: 5px; vertical-align: middle;">
+      Registrarse
+    </ion-button>
+  </div>
+</ion-content>

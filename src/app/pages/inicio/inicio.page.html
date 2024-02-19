@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button *ngIf="NombreUsuario"(click)="logout()">Cerrar sesión</ion-button>
+    </ion-buttons>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item style="padding: 10px;">
+    <ion-label style="white-space: normal; word-break: break-word;">
+      Bienvenido de nuevo: <strong>{{ NombreUsuario }}</strong>, 
+      ¡Nos alegra tenerte de vuelta!
+    </ion-label>
+  </ion-item>
+      <ion-list>
+        <ion-item>
+          <ion-label>Transacciones pendientes</ion-label>
+          <ion-badge color="primary">22k</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Evaluacion transaccion</ion-label>
+          <ion-badge color="secondary">118k</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Ofertas de transacciones</ion-label>
+          <ion-badge color="tertiary">34k</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Deudas</ion-label>
+          <ion-badge color="warning">70</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Notificaciones</ion-label>
+          <ion-badge color="danger">1000</ion-badge>
+        </ion-item>
+      </ion-list>
+      <div class="button-container">
+        <ion-button routerLink="/transaccion" >Nueva Transaccion</ion-button><ion-grid></ion-grid>
+      </div>
+</ion-content>
+<ion-content *ngIf="NombreUsuario">
+  <!-- Contenido para usuarios autenticados -->
+  <!-- ... tu contenido existente ... -->
+</ion-content>
+
+<ion-content *ngIf="!NombreUsuario">
+  <!-- Contenido para usuarios no autenticados -->
+  <ion-item>
+    <ion-label>
+      Por favor, inicia sesión para acceder a esta página.
+    </ion-label>
+  </ion-item>
+</ion-content>
