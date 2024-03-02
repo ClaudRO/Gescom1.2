@@ -8,7 +8,7 @@ import { LoginService } from '../../Users/login/login.service';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-
+  private usuario: string = '';
   NombreUsuario: string = '';
   id:Number=NaN
 
@@ -23,13 +23,23 @@ export class InicioPage implements OnInit {
       this.router.navigate(['/login']);
     } else {
       // Hay un token válido, obtener las credenciales y mostrar la información
+      const headers = this.credencialesService.setTokenHeader();
       this.obtenerCredenciales();
     }
   }
   
   obtenerCredenciales() {
-    this.NombreUsuario = this.credencialesService.getNombreUsuario();
-    this.id= this.credencialesService.getIdUsuario(); // Corrección aquí
+    const IdUsuario = this.credencialesService.getUserIdFromLocalStorage();
+    if (IdUsuario !== null) {
+      this.credencialesService.getUsuario(IdUsuario).subscribe((usuario) => {
+        // Haz lo que necesites con la información del usuario
+        this.NombreUsuario = usuario.nombre;
+      });
+    } else {
+      console.error('ID de usuario no válido');
+      // Puedes manejar el caso cuando el ID de usuario es null
+    }
+    
   }
 
   logout() {

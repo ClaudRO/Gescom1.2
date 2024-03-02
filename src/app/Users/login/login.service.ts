@@ -24,6 +24,15 @@ export class LoginService {
   getToken(): string | null {
     return localStorage.getItem('access_token');
   }
+  getUserIdFromLocalStorage(): number | null {
+  const userIdString = localStorage.getItem('user_id');
+
+  if (userIdString) {
+    return parseInt(userIdString, 10);
+  } else {
+    return null;
+  }
+}
   setTokenHeader(): HttpHeaders {
     const token = this.getToken();
     return new HttpHeaders().set('Authorization', `Bearer ${token}`);

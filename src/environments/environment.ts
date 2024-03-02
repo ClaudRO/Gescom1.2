@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false, 
-  apiURL:"https://appmobile-jsonserver.onrender.com"
+  apiURL:"http://localhost:3000/api/v1/usuarios"
 
 };
 

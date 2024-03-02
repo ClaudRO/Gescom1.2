@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CrearTransaccionPageModule } from './pages/crear-transaccion/crear-transaccion.module';
 
 const routes: Routes = [
   {
@@ -22,7 +23,24 @@ const routes: Routes = [
   {
     path: 'inicio',
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
-  }
+  },
+  {
+    path: 'crear-producto',
+    loadChildren: () => import('./pages/crear-producto/crear-producto.module').then( m => m.CrearProductoPageModule)
+  },
+  {
+    path: 'crear-proveedor',
+    loadChildren: () => import('./pages/crear-proveedor/crear-proveedor.module').then( m => m.CrearProveedorPageModule)
+  },
+  {
+    path: 'crear-transaccion',
+    loadChildren: () => import('./pages/crear-transaccion/crear-transaccion.module').then( m => m.CrearTransaccionPageModule)
+  },
+  {
+    path: 'historial',
+    loadChildren: () => import('./pages/crear-transaccion/historial/historial.module').then( m => m.HistorialPageModule)
+  },
+  
 ];
 
 @NgModule({

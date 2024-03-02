@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>Agregar un Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form>
+    <ion-item lines="full">
+      <ion-label position="floating">Nombre del producto: </ion-label>
+      <ion-input required [(ngModel)]="newProducto.nombre" name="nombre"></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Descripcion del producto: </ion-label>
+      <ion-input required  [(ngModel)]="newProducto.descripcion" name="descripcion"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="crearProducto()" expand="block" color="success" >Agregar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Productos agregados</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let p of productos">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" src="../../assets/static/palta.jpg" />
+          </ion-thumbnail>
+          <ion-label>{{ p.nombre }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>

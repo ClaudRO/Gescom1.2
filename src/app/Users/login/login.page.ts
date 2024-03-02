@@ -39,9 +39,9 @@ export class LoginPage implements OnInit {
   
       if (token) {
         // Setear el token en el servicio
-        this.credencialesService.setToken(token);
     
         // Setear el ID del usuario en el servicio
+        localStorage.setItem('user_id', userId.toString());
         this.credencialesService.getUsuario(userId).subscribe((usuario) => {
           // Haz lo que necesites con la información del usuario
           console.log('Usuario obtenido:', usuario);
@@ -56,10 +56,6 @@ export class LoginPage implements OnInit {
         // Manejar error al obtener el token
       }
     });
-   
-  
-    // Agregar un retorno fuera del subscribe
-     // O el valor que tenga sentido en tu lógica
   }
 
 }
